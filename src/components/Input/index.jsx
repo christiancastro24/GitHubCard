@@ -1,12 +1,16 @@
+import { ButtonBlue, ButtonRed, ChangeInput } from "./styles"
+
 export const Input = ({ inputValue, setInputValue, handleSearchingRepo }) => {
     return (
         <div>
-            <input 
+            <ChangeInput 
                 type="text"
                 value={inputValue}
-                onChange={evt => setInputValue(evt.target.value)} placeholder="Procure seu repositório..."/>
-                 <button onClick={handleSearchingRepo}>Pesquisar</button>
-                 <button onClick={() => setInputValue('')}>Limpar campo</button>     
+                onChange={evt => setInputValue(evt.target.value)} placeholder="Procure seu repositório..." />
+                <div>
+                 <ButtonBlue onClick={handleSearchingRepo}>Pesquisar</ButtonBlue>
+                 <ButtonRed onClick={() => setInputValue('')}>Limpar campo</ButtonRed>     
+                </div>
         </div>
     )
 }
