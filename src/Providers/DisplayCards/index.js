@@ -4,9 +4,9 @@ import { api } from "../../services/api";
 const DisplayCardsContext = createContext();
 
 export const DisplayProvider = ({ children }) => {
-  const [firstRepo, setFirstRepo] = useState([])
-  const [secondRepo, setSecondRepo] = useState([])
-  const [thirdRepo, setThirdRepo] = useState([])
+  const [userData, setUserData] = useState([])
+  const [repoData, setRepoData] = useState([])
+  const [repoStarred, setRepoStarred] = useState([])
   const [allData, setAllData] = useState([])
   const [inputValue, setInputValue] = useState("")
   const [name, setName] = useState("")
@@ -18,19 +18,18 @@ export const DisplayProvider = ({ children }) => {
     setLoading(true)
     api.get(`/${inputValue}`)
       .then(res => {
-        setFirstRepo(res.data);
+        setUserData(res.data);
         setAllData(res.data)
         setName(res.data.login);
         handleClearDisplay();
         setError(false)
         setDisplay(true)
         setLoading(false)
-        console.log(res.data)
       })
       .catch(_ => {
         setError(true);
         handleClearDisplay();
-        setFirstRepo([]);
+        setUserData([]);
         setDisplay(false)
         setLoading(false)
       })
@@ -38,19 +37,19 @@ export const DisplayProvider = ({ children }) => {
 
   const handleSearchRepos = () => {
     api.get(`/${name}/repos`)
-      .then(res => { setSecondRepo(res.data); setThirdRepo([]); })
+      .then(res => { setRepoData(res.data); setRepoStarred([]); })
       .catch(_ => { setError(true); })
   }
 
   const handleSearchStarred = () => {
     api.get(`/${name}/starred`)
-      .then(res => { setThirdRepo(res.data); setSecondRepo([]); })
+      .then(res => { setRepoStarred(res.data); setRepoData([]); })
       .catch(_ => { setError(true); })
   }
 
   const handleClearDisplay = () => {
-    setThirdRepo([]);
-    setSecondRepo([]);
+    setRepoStarred([]);
+    setRepoData([]);
     setInputValue("");
   }
 
@@ -58,8 +57,8 @@ export const DisplayProvider = ({ children }) => {
     <DisplayCardsContext.Provider value={{
       handleSearchRepos, handleSearchStarred,
       handleSearchingRepo, setInputValue, loading,
-      firstRepo, error, secondRepo, allData,
-      thirdRepo, inputValue, display, name,
+      userData, error, repoData, allData,
+      repoStarred, inputValue, display, name,
     }}>
       {children}
     </DisplayCardsContext.Provider>

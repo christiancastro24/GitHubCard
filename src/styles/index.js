@@ -2,12 +2,8 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
     :root {
-        --light-solid: #FFFFFF;
-        --light-high: rgba(255, 255, 255, 0.80);
-        --dark-low: rgba(0, 0, 0, 0.44);
+        --white: #FFF;
         --dark-medium: rgba(0, 0, 0, 60);
-        --dark-high: rgba(0, 0, 0, 0.80);
-        --magenta: #e63888;
     }
     
     * {
@@ -51,6 +47,6 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     a {
-        color: #fff;
+        color: var(--white);
     }
 `

@@ -36,5 +36,6 @@ export const Container = styled.div`
     letter-spacing: 0.02857em;
     text-transform: uppercase;
     margin-left: 0.2rem;
+    border-color: #fff;
   }
 `

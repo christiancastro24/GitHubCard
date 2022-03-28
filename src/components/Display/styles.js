@@ -11,7 +11,7 @@ export const Container = styled.div`
       }
 
     .divider {
-      border-top: 5px solid black;
+      border-top: 5px solid var(--white);
       margin: 10px;
     }
 
@@ -21,27 +21,27 @@ export const Container = styled.div`
 
     h3 {
       margin-top: 5rem;
-      color: #fff;
+      color: var(--white);
     }
     
     h4 {
-      color: #0095f6;
+      color: var(--white);
     }
 
     button:nth-child(1) {
-      background-color: red;
+      background-color: #C73E3E;
       height: 2.3rem;
       width: 30%;
-      color: #fff;
+      color: var(--white);
       font-weight: bold;
       border-radius: 6px;
     }
 
     button:nth-child(2) {
-      background-color: green;
+      background-color: #50CF83;
       height: 2.3rem;
       width: 30%;
-      color: #fff;
+      color: var(--white);
       font-weight: bold;
       border-radius: 6px;
     }
