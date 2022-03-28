@@ -1,16 +1,20 @@
 body {
-   background-color: #282c34;
+   background-color: #111213;
    font-size: 1.1rem;
+   overflow: hidden;
+   /* scrollbar-color: auto; */
 }
 
 .App {
   text-align: center;
   width: 36rem;
   margin: 10% auto;
-  background-color: #4d7ddd;
-  height: 30rem;
+  background-color: #0E4481;
+  height: 35rem;
   border-radius: 15px;
+  overflow-y: scroll;
 }
+
 
 h1 {
   color: #FFF;
@@ -22,11 +26,3 @@ h1 {
   cursor: not-allowed;
 }
 
-.sub-dontExist {
-  color: #fff;
-}
-
-
-button:hover, a:hover  {
-  filter: brightness(90%);
-}
