@@ -43,7 +43,7 @@ export const DisplayProvider = ({ children }) => {
       setLoading(false)
     } catch {
       setError(true)
-      setLoading(FontFaceSetLoadEvent)
+      setLoading(false)
     }
   }
 
